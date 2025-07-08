@@ -1,0 +1,20 @@
+# FTP Deployment Instructions
+
+# Option 1: Using curl (if available)
+# Replace with your actual FTP credentials from Azure Portal
+
+FTP_HOST="your-app.scm.azurewebsites.net"
+FTP_USER="your-app\\$your-app"
+FTP_PASS="your-password-from-azure"
+
+# Upload index.html
+curl -T index.html ftp://$FTP_HOST/site/wwwroot/ --user $FTP_USER:$FTP_PASS
+
+# Upload web.config
+curl -T web.config ftp://$FTP_HOST/site/wwwroot/ --user $FTP_USER:$FTP_PASS
+
+# Option 2: Using any FTP client like FileZilla
+# Host: your-app.scm.azurewebsites.net
+# Username: your-app\$your-app (from Azure Portal)
+# Password: (from Azure Portal)
+# Upload to: /site/wwwroot/
