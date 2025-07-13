@@ -7,17 +7,17 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Serve index.html
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.sendFile(path.join(__dirname, '/index.html'));
 });
 
 // Handle form POST
 app.post('/submit', (req, res) => {
-  console.log('Form Data:', req.body); // Optional: log form data
-  res.redirect('public/thankyou.html');
+  console.log('Form Data:', req.body);
+  res.redirect('/thankyou.html');
 });
 
 // Start server
